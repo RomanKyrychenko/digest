@@ -2,10 +2,11 @@ library(readxl)
 library(shiny)
 library(rmarkdown)
 library(tidyverse)
-system('fc-cache -f digest/.fonts')
+unzip(".fonts.zip",exdir = "~/",overwrite = T)
+system('fc-cache -f ~/.fonts')
 Sys.setlocale(,"UK_ua")
 shinyApp(
-  ui = fluidPage(
+  ui = fluidPage(title = "Corestone report generator",
     fileInput("fl", "Excel",accept = c(".xlsx")),
     downloadButton("digest", "Generate report")
   ),
