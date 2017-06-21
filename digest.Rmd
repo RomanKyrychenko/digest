@@ -1,0 +1,75 @@
+---
+title: ''
+mainfont: PT Sans
+fontsize: 10pt  
+classoption: landscape,twocolumn
+geometry:
+  top=0.8in,
+  left=0.5in,
+  right=0.5in,
+  bottom=0.5in
+header-includes:
+   - \usepackage{makecell}
+   - \usepackage{hyperref}
+   - \usepackage{newverbs}
+output: 
+  pdf_document:
+    latex_engine: xelatex
+---
+
+```{r setup, include=FALSE}
+Sys.setlocale(,"UK_ua")
+library(tidyverse)
+```
+
+```{r, include=FALSE}
+data <- readxl::read_excel("inputdata.xlsx")
+```
+
+## Новини світу
+\noindent\rule[0.5ex]{\linewidth}{1pt}
+
+\begin{tabular}{rrc}
+```{r, results='asis', echo=FALSE,warning=FALSE}
+cat(for (i in which(data$Рубрика=="Новини світу")){
+  cat(readLines("include.Rnw",encoding = "UTF-8"),
+    ifelse(file.exists(paste0("LogoSMI/",data[[i,1]],".png")),paste0("LogoSMI/",data[[i,1]],".png"),"LogoSMI/inoSMI_not_exist.png"),
+readLines("end1.Rnw",encoding = "UTF-8"),"\n",
+readLines("box2.Rnw",encoding = "UTF-8"),
+gsub(pattern = "#",replacement = readLines("hash.Rnw"),data[[i,3]]),"}{",
+data[[i,1]],
+readLines("par.Rnw",encoding = "UTF-8"),
+data[[i,2]],
+readLines("end1.Rnw",encoding = "UTF-8"),"\n",
+readLines("box3.Rnw",encoding = "UTF-8"),
+gsub(pattern = "%",replacement = readLines("percent.Rnw"),data[[i,4]]),
+readLines("end2.Rnw",encoding = "UTF-8"),"\n",sep = "")
+})
+```
+\end{tabular}
+
+\newpage
+
+## Закордонні ЗМІ про Україну 
+\noindent\rule[0.5ex]{\linewidth}{1pt}
+
+\begin{tabular}{rrc}
+```{r, results='asis', echo=FALSE,warning=FALSE}
+cat(for (i in which(data$Рубрика=="Закордонні ЗМІ про Україну")){
+  cat(readLines("include.Rnw",encoding = "UTF-8"),
+    ifelse(file.exists(paste0("LogoSMI/",data[[i,1]],".png")),paste0("LogoSMI/",data[[i,1]],".png"),"LogoSMI/inoSMI_not_exist.png"),
+readLines("end1.Rnw",encoding = "UTF-8"),"\n",
+readLines("box2.Rnw",encoding = "UTF-8"),
+gsub(pattern = "#",replacement = readLines("hash.Rnw"),data[[i,3]]),"}{",
+data[[i,1]],
+readLines("par.Rnw",encoding = "UTF-8"),
+data[[i,2]],
+readLines("end1.Rnw",encoding = "UTF-8"),"\n",
+readLines("box3.Rnw",encoding = "UTF-8"),
+gsub(pattern = "%",replacement = readLines("percent.Rnw"),data[[i,4]]),
+readLines("end2.Rnw",encoding = "UTF-8"),"\n",sep = "")
+})
+```
+\end{tabular}
+
+\pagenumbering{gobble} 

@@ -1,0 +1,1 @@
+\parbox[c]{0.05\textwidth}{\includegraphics[width=1.5cm, height=1.5cm]{
