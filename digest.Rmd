@@ -12,6 +12,7 @@ header-includes:
    - \usepackage{makecell}
    - \usepackage{hyperref}
    - \usepackage{newverbs}
+   - \usepackage{color}
 output: 
   pdf_document:
     latex_engine: xelatex
