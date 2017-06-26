@@ -1,1 +1,1 @@
-\parbox[c]{0.1\textwidth}{\makecell{\bfseries{\color{blue}{\underline{\href{
+\parbox[c]{0.08\textwidth}{\makecell{\bfseries{\color{blue}{\underline{\href{
