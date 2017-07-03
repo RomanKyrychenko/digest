@@ -2,7 +2,7 @@
 title: ''
 mainfont: PT Sans
 fontsize: 10pt  
-classoption: landscape,twocolumn
+classoption: a4paper,landscape,twocolumn
 geometry:
   top=0.8in,
   left=0.5in,
