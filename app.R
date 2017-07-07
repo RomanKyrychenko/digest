@@ -6,10 +6,13 @@ unzip(".fonts.zip",exdir = "~/",overwrite = T)
 system('fc-cache -f ~/.fonts')
 Sys.setlocale(,"UK_ua")
 shinyApp(
-  ui = fluidPage(title = "Corestone report generator",
-    fileInput("fl", "Excel",accept = c(".xlsx")),
-    downloadButton("digest", "Generate report")
-  ),
+  ui = fluidPage(
+    titlePanel("Corestone report generator"),
+    mainPanel(
+      title = "Corestone report generator",
+      fileInput("fl", "Excel",accept = c(".xlsx")),
+      downloadButton("digest", "Generate report")
+  )),
   server = function(input, output) {
     df <- reactive({
       inFile <- input$fl
