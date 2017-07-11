@@ -1,13 +1,9 @@
-# digest
-
-
-1) Corestone Infoflow
-
-Error 43 - помилка в коді, зумовлюється переважно некоректними символами вводу в таблиці Excel
-
-2) InoSMI
+# Daily Digest
 
 > LaTeX and ggplot2 reports for daily-digest Corestone Corporation
+
+1) Corestone Infoflow
+2) InoSMI
 
 [![Linux Build Status](https://travis-ci.org/r-lib/revdepcheck.svg?branch=master)](https://travis-ci.org/r-lib/revdepcheck)
 [![Windows Build status](https://ci.appveyor.com/api/projects/status/github/r-lib/revdepcheck?svg=true)](https://ci.appveyor.com/project/gaborcsardi/revdepcheck)
@@ -20,15 +16,16 @@ Error 43 - помилка в коді, зумовлюється переважн
   `R CMD check` twice for each revdep, once with the CRAN version of your 
   package, and once with the local development version. revdepcheck
   reports the difference, so you can see exactly what has changed.
-
-* To speed up installation of revdeps and their dependencies, revdepcheck 
-  relies on [crancache](https://github.com/r-lib/crancache). You can see what 
-  packages are currently cached with `crancache::crancache_list()`.
   
 * revdepcheck is carefully designed to make long running checks as pleasant
   as possible. You run checks in parallel, check time is limited to 10 minutes,
   and an elegant progress bar keeps you up-to-date with what's happening
   (including an estimate of how much time is remaining).
+
+
+## Errors
+
+* Error 43 - помилка в коді, зумовлюється переважно некоректними символами вводу в таблиці Excel
 
 ## Installation
 
