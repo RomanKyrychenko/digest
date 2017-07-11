@@ -1,5 +1,5 @@
 # digest
-LaTeX report for daily-digest Corestone Corporation
+
 
 1) Corestone Infoflow
 
@@ -7,10 +7,7 @@ Error 43 - помилка в коді, зумовлюється переважн
 
 2) InoSMI
 
-
-# revdepcheck
-
-> Automated, Isolated, Reverse Dependency Checking
+> LaTeX and ggplot2 reports for daily-digest Corestone Corporation
 
 [![Linux Build Status](https://travis-ci.org/r-lib/revdepcheck.svg?branch=master)](https://travis-ci.org/r-lib/revdepcheck)
 [![Windows Build status](https://ci.appveyor.com/api/projects/status/github/r-lib/revdepcheck?svg=true)](https://ci.appveyor.com/project/gaborcsardi/revdepcheck)
@@ -54,7 +51,5 @@ revdep_reset()
 
 ## License
 
-MIT ©
-[Gábor Csárdi](https://github.com/gaborcsardi),
-[R Consortium](https://github.com/rconsortium),
-[RStudio Inc](https://github.com/rstudio)
+Corestone Corp. ©
+[Roman Kyrychenko](https://github.com/RomanKyrychenko)
