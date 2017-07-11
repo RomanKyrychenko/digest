@@ -39,21 +39,57 @@ interp_points <- function (data) {
   df
 }
 
-
-
 unzip(".fonts.zip",exdir = "~/",overwrite = T)
 system('fc-cache -f ~/.fonts')
 Sys.setlocale(,"UK_ua")
+
 ui <- dashboardPage(skin = "red",
                     
   dashboardHeader(
-    title="Corestone work tools" #,
-   # dropdownMenuOutput("messageMenu")
+    title="Corestone work tools",
+    dropdownMenuOutput("sys"),
+    tags$li(class = "dropdown",
+            tags$a(href = "https://github.com/RomanKyrychenko",
+                   target = "_blank",
+                   tags$img(height = "20px", 
+                            src = "https://raw.githubusercontent.com/oraza/sectarianviolencePK/master/www/github.png")
+            )
+    )
   ),
   dashboardSidebar(
     sidebarMenu(
-      menuItem("ІноЗМІ", tabName = "ІноЗМІ"),
-      menuItem("Infoflow", tabName = "Infoflow")
+      menuItem("ІноЗМІ", tabName = "ІноЗМІ",icon = icon("newspaper-o")),
+      menuItem("Infoflow", tabName = "Infoflow", icon = icon("vcard-o")),
+      #menuItem("System", tabName = "sys", icon = icon("line-chart")),
+      br(),
+      br(),
+      br(),
+      br(),
+      br(),
+      br(),
+      br(),
+      br(),
+      br(),
+      br(),
+      br(),
+      br(),
+      br(),
+      br(),
+      br(),
+      br(),
+      br(),
+      br(),
+      br(),
+      br(),
+      hr(),
+      menuItem("Documentation", icon = icon("file-text-o"), 
+               href = "https://github.com/RomanKyrychenko/digest/blob/master/README.md"),
+      menuItem("Feedback & suggestion", icon = icon("envelope-o"),
+               href = "mailto:?Roman.Kyrychenko@corestone.expert?subject=Feedback on Corestone work tools app"),
+      menuItem("Source code", icon = icon("file-code-o"), 
+               href = "https://github.com/RomanKyrychenko/digest"),
+      menuItem("Fork me @ github", icon = icon("code-fork"), 
+               href = "https://github.com/RomanKyrychenko") 
     )
   ),
   dashboardBody(
@@ -77,17 +113,20 @@ ui <- dashboardPage(skin = "red",
 )
 
 server <- function(input,output,server,session){
-  #output$messageMenu <- renderMenu({
-    # Code to generate each of the messageItems here, in a list. This assumes
-    # that messageData is a data frame with two columns, 'from' and 'message'.
-   # msgs <- apply(messageData, 1, function(row) {
-    #  messageItem(from = row[["from"]], message = row[["message"]])
-   # })
-    
-    # This is equivalent to calling:
-    #   dropdownMenu(type="messages", msgs[[1]], msgs[[2]], ...)
-   # dropdownMenu(type = "messages", .list = msgs)
-  #})
+  mem  <- reactive({system("% free | grep Mem | awk '{print $3/$2 * 100.0}'")})
+  cpu <- reactive({system("top")})
+  output$sys <- renderMenu({
+    dropdownMenu(type = "messages",
+    messageItem(from = "Memory",
+                message = mem(),
+                icon=icon("database"),
+                time =Sys.time()),
+    messageItem(from = "CPU",
+                message = cpu(),
+                icon=icon("dashboard"),
+                time =Sys.time())
+    )
+    })
   df <- reactive({
     inFile <- input$fl
     if(is.null(inFile))
@@ -328,5 +367,5 @@ server <- function(input,output,server,session){
   )
   session$onSessionEnded(stopApp)
 }
-
+options(shiny.trace=TRUE)
 shinyApp(ui,server)
