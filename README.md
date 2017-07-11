@@ -5,7 +5,7 @@
 1) Corestone Infoflow
 2) InoSMI
 
-[![](https://romankyrychenko.shinyapps.io/digest/)](https://romankyrychenko.shinyapps.io/digest/)
+[![(https://romankyrychenko.shinyapps.io/digest/)](https://romankyrychenko.shinyapps.io/digest/)
 
 ## Features
 
