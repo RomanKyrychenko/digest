@@ -5,7 +5,7 @@
 1) Corestone Infoflow
 2) InoSMI
 
-[![](http://www.theswarmlab.com/img/portfolio/shiny.png)](https://romankyrychenko.shinyapps.io/digest/)
+[![](http://www.theswarmlab.com/img/portfolio/shiny-thumbnail.png)](https://romankyrychenko.shinyapps.io/digest/)
 
 ## Features
 
@@ -27,17 +27,10 @@ source("https://install-github.me/RomanKyrychenko/digest/")
 ## Usage
 
 ```r
-library(revdepcheck)
 
-# Check package in working directory
-# Will automatically create revdep/ directory if it doesn't already exist
-revdep_check(num_workers = 4)
-
-# Clear out all previous results
-revdep_reset()
 ```
 
 ## License
 
-Corestone Corp. ©
+Corestone Corp. ©,
 [Roman Kyrychenko](https://github.com/RomanKyrychenko)
