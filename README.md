@@ -32,5 +32,5 @@ source("https://install-github.me/RomanKyrychenko/digest/")
 
 ## License
 
-Corestone Corp. ©,
-[Roman Kyrychenko](https://github.com/RomanKyrychenko)
+* Corestone Corp. ©
+* [Roman Kyrychenko](https://github.com/RomanKyrychenko)
