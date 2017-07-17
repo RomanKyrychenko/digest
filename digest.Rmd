@@ -31,7 +31,7 @@ library(tidyverse)
 data <- params$data
 ```
 
-## Новини світу
+## НОВИНИ СВІТУ
 \noindent\rule[0.5ex]{\linewidth}{1pt}
 
 \begin{tabular}{rrc}
@@ -40,13 +40,15 @@ cat(for (i in which(data$Рубрика=="Новини світу")){
   cat(readLines("include.Rnw",encoding = "UTF-8"),
     ifelse(file.exists(paste0("LogoSMI/",tolower(data[[i,1]]),".png")),paste0("LogoSMI/",tolower(data[[i,1]]),".png"),"LogoSMI/inosmi_not_exist.png"),
 readLines("end1.Rnw",encoding = "UTF-8"),"\n",
+readLines("box3.Rnw",encoding = "UTF-8"),
 readLines("box2.Rnw",encoding = "UTF-8"),
 gsub(pattern = "#",replacement = readLines("hash.Rnw"),data[[i,3]]),"}{",
-toupper(data[[i,1]]),
+#toupper(data[[i,1]]),
 readLines("par.Rnw",encoding = "UTF-8"),
-data[[i,2]],
-readLines("end1.Rnw",encoding = "UTF-8"),"\n",
-readLines("box3.Rnw",encoding = "UTF-8"),
+#data[[i,2]],
+#readLines("end1.Rnw",encoding = "UTF-8"),"\n",
+paste0(data[[i,1]],"} "),
+paste("|",data[[i,2]]),"}}}} ", readLines("ttttt.Rnw",encoding = "UTF-8")," ",
 gsub(pattern = "%",replacement = readLines("percent.Rnw"),data[[i,4]]),
 readLines("end2.Rnw",encoding = "UTF-8"),"\n",sep = "")
 })
@@ -55,22 +57,24 @@ readLines("end2.Rnw",encoding = "UTF-8"),"\n",sep = "")
 
 \newpage
 
-## Закордонні ЗМІ про Україну 
+## ЗАКОРДОННІ ЗМІ ПРО УКРАЇНУ
 \noindent\rule[0.5ex]{\linewidth}{1pt}
 
-\begin{tabular}{rrc}
+\begin{tabular}{rc}
 ```{r, results='asis', echo=FALSE,warning=FALSE}
 cat(for (i in which(data$Рубрика=="Закордонні ЗМІ про Україну")){
   cat(readLines("include.Rnw",encoding = "UTF-8"),
     ifelse(file.exists(paste0("LogoSMI/",tolower(data[[i,1]]),".png")),paste0("LogoSMI/",tolower(data[[i,1]]),".png"),"LogoSMI/inosmi_not_exist.png"),
 readLines("end1.Rnw",encoding = "UTF-8"),"\n",
+readLines("box3.Rnw",encoding = "UTF-8"),
 readLines("box2.Rnw",encoding = "UTF-8"),
 gsub(pattern = "#",replacement = readLines("hash.Rnw"),data[[i,3]]),"}{",
-toupper(data[[i,1]]),
+#toupper(data[[i,1]]),
 readLines("par.Rnw",encoding = "UTF-8"),
-data[[i,2]],
-readLines("end1.Rnw",encoding = "UTF-8"),"\n",
-readLines("box3.Rnw",encoding = "UTF-8"),
+#data[[i,2]],
+#readLines("end1.Rnw",encoding = "UTF-8"),"\n",
+paste0(data[[i,1]],"} "),
+paste("|",data[[i,2]]),"}}}} ", readLines("ttttt.Rnw",encoding = "UTF-8")," ",
 gsub(pattern = "%",replacement = readLines("percent.Rnw"),data[[i,4]]),
 readLines("end2.Rnw",encoding = "UTF-8"),"\n",sep = "")
 })
