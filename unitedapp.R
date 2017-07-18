@@ -142,7 +142,7 @@ server <- function(input,output,server,session){
         geom_text(aes(reorder(data[[1]][2:11],as.numeric(data[[2]][2:11])),0,
                       label=reorder(data[[1]][2:11],as.numeric(data[[2]][2:11]))),hjust=0,vjust=-2,size=6*3,
                   family = "PT Sans")+
-        annotate("text",0.3,max(as.numeric(data[[2]][2:11])),label="тис. контактів",
+        annotate("text",0.3,max(c(as.numeric(data[[2]][2:11]),as.numeric(data[[3]][2:11]))),label="тис. контактів",
                  hjust=1,vjust=-2,size=5*3,family = "PT Sans",color="#636566")+
         ylab("")+
         xlab("")+
@@ -168,7 +168,7 @@ server <- function(input,output,server,session){
                      as.numeric(data[[2]][14:23])),stat = "identity",width = 0.4,fill="#E1B5AC")+
         geom_text(aes(reorder(data[[1]][14:23],as.numeric(data[[2]][14:23])),0,
                       label=reorder(data[[1]][14:23],as.numeric(data[[2]][14:23]))),hjust=1,vjust=-2,size=6*3,family = "PT Sans")+
-        annotate("text",0.3,max(as.numeric(data[[2]][14:23])),
+        annotate("text",0.3,max(c(as.numeric(data[[2]][14:23]),as.numeric(data[[3]][14:23]))),
                  label="млн контактів",hjust=0,vjust=-2,size=5*3,family = "PT Sans",color="#636566")+
         ylab("")+
         xlab("")+
@@ -240,7 +240,7 @@ server <- function(input,output,server,session){
         geom_point(),ggplot() +
         {if(file.exists(paste0("persons/",stringi::stri_trans_general(data[[1]][4],"Ukrainian-Latin/BGN"),".png")))annotation_custom(rasterGrob(readPNG(paste0("persons/",stringi::stri_trans_general(data[[1]][4],"Ukrainian-Latin/BGN"),".png")), interpolate=TRUE), xmin=-Inf, xmax=Inf, ymin=-Inf, ymax=Inf)} +
         geom_point(),ggplot() +
-        {if(file.exists(paste0("persons/",stringi::stri_trans_general(data[[1]][5],"Ukrainian-Latin/BGN"),".png")))annotation_custom(rasterGrob(readPNG(paste0("persons/",stringi::stri_trans_general(data[[1]][5],"Ukrainian-Latin/BGN"),".png")), interpolate=TRUE), xmin=-Inf, xmax=Inf, ymin=-Inf, ymax=Inf)} +
+        {if(file.exists(paste0("persons/",gsub("ʹ","",stringi::stri_trans_general(data[[1]][5],"Ukrainian-Latin/BGN")),".png")))annotation_custom(rasterGrob(readPNG(paste0("persons/",gsub("ʹ","",stringi::stri_trans_general(data[[1]][5],"Ukrainian-Latin/BGN")),".png")), interpolate=TRUE), xmin=-Inf, xmax=Inf, ymin=-Inf, ymax=Inf)} +
         geom_point(),ggplot() +
         {if(file.exists(paste0("persons/",stringi::stri_trans_general(data[[1]][6],"Ukrainian-Latin/BGN"),".png")))annotation_custom(rasterGrob(readPNG(paste0("persons/",stringi::stri_trans_general(data[[1]][6],"Ukrainian-Latin/BGN"),".png")), interpolate=TRUE), xmin=-Inf, xmax=Inf, ymin=-Inf, ymax=Inf)} +
         geom_point(),ggplot() +
@@ -261,7 +261,7 @@ server <- function(input,output,server,session){
         geom_point(),ggplot() +
         {if(file.exists(paste0("persons/",stringi::stri_trans_general(data[[1]][16],"Ukrainian-Latin/BGN"),".png")))annotation_custom(rasterGrob(readPNG(paste0("persons/",stringi::stri_trans_general(data[[1]][16],"Ukrainian-Latin/BGN"),".png")), interpolate=TRUE), xmin=-Inf, xmax=Inf, ymin=-Inf, ymax=Inf)} +
         geom_point(),ggplot() +
-        {if(file.exists(paste0("persons/",stringi::stri_trans_general(data[[1]][17],"Ukrainian-Latin/BGN"),".png")))annotation_custom(rasterGrob(readPNG(paste0("persons/",stringi::stri_trans_general(data[[1]][17],"Ukrainian-Latin/BGN"),".png")), interpolate=TRUE), xmin=-Inf, xmax=Inf, ymin=-Inf, ymax=Inf)} +
+        {if(file.exists(paste0("persons/",gsub("ʹ","",stringi::stri_trans_general(data[[1]][17],"Ukrainian-Latin/BGN")),".png")))annotation_custom(rasterGrob(readPNG(paste0("persons/",gsub("ʹ","",stringi::stri_trans_general(data[[1]][17],"Ukrainian-Latin/BGN")),".png")), interpolate=TRUE), xmin=-Inf, xmax=Inf, ymin=-Inf, ymax=Inf)} +
         geom_point(),ggplot() +
         {if(file.exists(paste0("persons/",stringi::stri_trans_general(data[[1]][18],"Ukrainian-Latin/BGN"),".png")))annotation_custom(rasterGrob(readPNG(paste0("persons/",stringi::stri_trans_general(data[[1]][18],"Ukrainian-Latin/BGN"),".png")), interpolate=TRUE), xmin=-Inf, xmax=Inf, ymin=-Inf, ymax=Inf)} +
         geom_point(),ggplot() +
@@ -305,14 +305,14 @@ server <- function(input,output,server,session){
         ) 
       
       grid.arrange(p2,p4,p6,p3,p5,p7,p1,ggplot(),
-                   layout_matrix=cbind(c(1,1,1,1,1,1,1,1,1,1,1,1,1), 
-                                       c(2,2,2,2,2,2,2,2,2,2,2,2,8),
-                                       c(3,3,3,3,3,3,3,3,3,3,3,3,8),
-                                       c(4,4,4,4,4,4,4,4,4,4,4,4,8),
-                                       c(5,5,5,5,5,5,5,5,5,5,5,5,8),
-                                       c(6,6,6,6,6,6,6,6,6,6,6,6,8),
-                                       c(7,7,7,7,7,7,7,7,7,7,7,7,7)),
-                   widths=c(3,0.67,0.65,1,0.65,0.67,3))
+                   layout_matrix=cbind(c(1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1), 
+                                       c(2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,8),
+                                       c(3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,8),
+                                       c(4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,8),
+                                       c(5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,8),
+                                       c(6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,8),
+                                       c(7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7)),
+                   widths=c(3,0.67,0.5,1,0.5,0.67,3))
     }
     infoflow(data)
   })
@@ -326,7 +326,7 @@ server <- function(input,output,server,session){
       paste0("infoflow-",Sys.Date(),".pdf")
     },
     content = function(file) {
-      cairo_pdf(file, width=16.98, height=10.93,bg = "white")
+      cairo_pdf(file, width=36.66*1.3, height=23.58*1.3,bg = "white")
       grid.draw(df2())
       dev.off()
     }
