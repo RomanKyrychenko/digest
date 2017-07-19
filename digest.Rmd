@@ -13,6 +13,10 @@ header-includes:
    - \usepackage{hyperref}
    - \usepackage{newverbs}
    - \usepackage{color}
+   - \usepackage[dvipsnames]{xcolor}
+   - \definecolor{mycolor}{HTML}{2e75b5}
+   - \definecolor{mycolor2}{HTML}{605F61}
+   - \color{mycolor2}
 output: 
   pdf_document:
     latex_engine: xelatex
@@ -32,7 +36,7 @@ data <- params$data
 ```
 
 ## НОВИНИ СВІТУ
-\noindent\rule[0.5ex]{\linewidth}{1pt}
+\noindent
 
 \begin{tabular}{rrc}
 ```{r, results='asis', echo=FALSE,warning=FALSE}
@@ -58,7 +62,7 @@ readLines("end2.Rnw",encoding = "UTF-8"),"\n",sep = "")
 \newpage
 
 ## ЗАКОРДОННІ ЗМІ ПРО УКРАЇНУ
-\noindent\rule[0.5ex]{\linewidth}{1pt}
+\noindent
 
 \begin{tabular}{rc}
 ```{r, results='asis', echo=FALSE,warning=FALSE}

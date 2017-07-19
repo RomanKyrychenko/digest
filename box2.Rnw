@@ -1,1 +1,1 @@
-{\color{blue}{\underline{\href{
+{\color{mycolor}{\underline{\href{
