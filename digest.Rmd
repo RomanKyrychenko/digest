@@ -1,13 +1,14 @@
 ---
 title: ''
 mainfont: PT Sans
-fontsize: 10pt  
+fontsize: 11pt
+linestretch: 0.85
 classoption: a4paper,landscape,twocolumn
 geometry:
-  top=0.8in,
-  left=0.5in,
-  right=0.5in,
-  bottom=0.5in
+  top=3cm,
+  left=2cm,
+  right=2cm,
+  bottom=2cm
 header-includes:
    - \usepackage{makecell}
    - \usepackage{hyperref}
@@ -34,6 +35,8 @@ library(tidyverse)
 #data <- input$data
 data <- params$data
 ```
+
+\vspace{12pt}
 
 ## НОВИНИ СВІТУ
 \noindent
